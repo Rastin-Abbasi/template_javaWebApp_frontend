@@ -38,9 +38,9 @@ jobs:
           echo "lalala  ${{ vars.DOCKERHUB_REPO }}"
       - name: Run Docker Build Script
         env:
-          DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          DOCKER_REPO: ${{ vars.DOCKERHUB_REPO }}
+          DOCKER_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
           chmod +x docker-build.sh
           ./docker-build.sh
